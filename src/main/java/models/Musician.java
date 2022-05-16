@@ -15,6 +15,7 @@ public class Musician {
     public Musician(String name, String instrument, String artistType,int recordLabelId) {
         this.name = name;
         this.instrument = instrument;
+        this.artistType = artistType;
         this.recordLabelId = recordLabelId;
     }
 
