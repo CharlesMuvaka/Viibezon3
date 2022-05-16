@@ -8,26 +8,52 @@ public class sql2oSongDao implements SongDao {
 
     @Override
     public void add(Song song) {
+        String sql = "INSERT INTO songs (title, genre, musician_id) VALUES (:title,:genre,:musician_id)";
+        try (var connection = DB.sql2o.open()) {
+            int id =(int)connection.createQuery(sql , true)
+                    .bind(song)
+                    .executeUpdate()
+                    .getKey();
+                     song.setId(id);
 
+        }
     }
 
     @Override
     public List<Song> getAll() {
-        return null;
+        String sql = "SELECT * FROM songs";
+        try (var connection = DB.sql2o.open()) {
+            return connection.createQuery(sql)
+                    .executeAndFetch(Song.class);
+        }
     }
 
     @Override
     public Song findById(int id) {
-        return null;
+        try (var connection = DB.sql2o.open()) {
+            return connection.createQuery("SELECT * FROM songs WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Song.class);
+        }
     }
 
     @Override
     public void update(int id, Song song) {
-
+        String sql = "UPDATE songs SET title = :title, genre = :genre, musician_id = :musician_id WHERE id = :id";
+        try (var connection = DB.sql2o.open()) {
+            connection.createQuery(sql)
+                    .bind(song)
+                    .executeUpdate();
+        }
     }
 
     @Override
     public void deleteById(int id) {
-
+        String sql = "DELETE FROM songs WHERE id = :id";
+        try (var connection = DB.sql2o.open()) {
+            connection.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
     }
 }

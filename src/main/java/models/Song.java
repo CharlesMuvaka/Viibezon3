@@ -4,12 +4,12 @@ public class Song {
     	private int id;
 	private String title;
 
-	private int recordLabelId;
+	private String genre;
 	private int musicianId;
 
-	public Song(String title, int recordLabelId, int musicianId) {
+	public Song(String title, String genre, int musicianId) {
 		this.title = title;
-		this.recordLabelId = recordLabelId;
+		this.genre = genre;
 		this.musicianId = musicianId;
 	}
 
@@ -22,11 +22,27 @@ public class Song {
 	}
 
 
-	public int getRecordLabelId() {
-		return recordLabelId;
+	public String getGenre() {
+		return genre;
 	}
 
 	public int getMusicianId() {
 		return musicianId;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public void setMusicianId(int musicianId) {
+		this.musicianId = musicianId;
 	}
 }

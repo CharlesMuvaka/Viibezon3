@@ -30,4 +30,7 @@ public class RecordLabel {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public void setId(int id) {
+    }
 }
