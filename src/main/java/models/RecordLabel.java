@@ -4,11 +4,21 @@ public class RecordLabel {
     private int id;
     private String name;
     private String location;
+    private String manager;
 
 
-    public RecordLabel(String name, String location  ) {
+    public RecordLabel(String name, String location,String manager ) {
         this.name = name;
         this.location = location;
+        this.manager = manager;
+    }
+
+    public String getManager() {
+        return manager;
+    }
+
+    public void setManager(String manager) {
+        this.manager = manager;
     }
 
     public int getId() {

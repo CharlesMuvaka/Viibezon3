@@ -7,13 +7,31 @@ public class Musician {
 
     private String artistType;
 
+    private  int recordLabelId;
 
 
 
-    public Musician(String name, String instrument, String artistType) {
+
+    public Musician(String name, String instrument, String artistType,int recordLabelId) {
         this.name = name;
         this.instrument = instrument;
+        this.recordLabelId = recordLabelId;
+    }
 
+    public String getArtistType() {
+        return artistType;
+    }
+
+    public void setArtistType(String artistType) {
+        this.artistType = artistType;
+    }
+
+    public int getRecordLabelId() {
+        return recordLabelId;
+    }
+
+    public void setRecordLabelId(int recordLabelId) {
+        this.recordLabelId = recordLabelId;
     }
 
     public int getId() {
@@ -27,8 +45,6 @@ public class Musician {
     public String getInstrument() {
         return instrument;
     }
-
-
 
     public void setId(int id) {
         this.id = id;
@@ -49,4 +65,5 @@ public class Musician {
     public String toString() {
         return "Musician: " + this.name + " " + this.instrument + " " + this.artistType;
     }
+
 }

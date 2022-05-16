@@ -12,11 +12,12 @@ public class sql2oRecordLabelDao implements RecordLabelDao {
 
     @Override
     public void add(RecordLabel recordLabel) {
-        String sql = "INSERT INTO record_labels (name, location) VALUES (:name, :location)";
+        String sql = "INSERT INTO record_labels (name, location,manager) VALUES (:name, :location,:manager)";
         try (Connection con = DB.sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
                     .addParameter("name", recordLabel.getName())
                     .addParameter("location", recordLabel.getLocation())
+                    .addParameter("manager",recordLabel.getManager())
                     .executeUpdate()
                     .getKey();
             recordLabel.setId(id);
@@ -43,11 +44,12 @@ public class sql2oRecordLabelDao implements RecordLabelDao {
 
     @Override
     public void update(int id, RecordLabel recordLabel) {
-        String sql = "UPDATE record_labels SET name = :name, location = :location WHERE id = :id";
+        String sql = "UPDATE record_labels SET name = :name, location = :location, manager=:manager WHERE id = :id";
         try (Connection con = DB.sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("name", recordLabel.getName())
                     .addParameter("location", recordLabel.getLocation())
+                    .addParameter("manager",recordLabel.getManager())
                     .addParameter("id", id)
                     .executeUpdate();
         }
