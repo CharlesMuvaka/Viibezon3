@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Musician {
     private int id;
     private String name;
@@ -76,4 +78,16 @@ public class Musician {
         return "Musician: " + this.name + " " + this.instrument + " " + this.artistType;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Musician musician = (Musician) o;
+        return id == musician.id && recordLabelId == musician.recordLabelId && name.equals(musician.name) && instrument.equals(musician.instrument) && artistType.equals(musician.artistType) && genre.equals(musician.genre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, instrument, artistType, recordLabelId, genre);
+    }
 }
