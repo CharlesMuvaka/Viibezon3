@@ -1,5 +1,6 @@
 package Dao;
 
+import models.Musician;
 import models.RecordLabel;
 import org.sql2o.Connection;
 
@@ -65,6 +66,18 @@ public class sql2oRecordLabelDao implements RecordLabelDao {
         }
 
     }
+
+    @Override
+    public List<Musician> getAllMusician( int id) {
+        String sql = "SELECT * FROM musicians Where recordlabelid = :id";
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetch(Musician.class);
+        }
+    }
+
+
 }
 
 
