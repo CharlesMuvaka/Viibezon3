@@ -1,6 +1,7 @@
 package Dao;
 
 import models.Musician;
+import models.Song;
 
 import java.util.List;
 
@@ -15,5 +16,7 @@ public interface MusicianDao {
     void update(int id, Musician musician);
 
     void deleteById(int id);
+
+    List<Song> getAllSongs(int id);
 
 }
