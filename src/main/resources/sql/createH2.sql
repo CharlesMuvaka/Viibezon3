@@ -1,6 +1,6 @@
 SET MODE PostgreSQL;
 
-CREATE TABLE musicians(
+CREATE TABLE  IF NOT EXISTS musicians(
  id int PRIMARY KEY auto_increment,
  name VARCHAR,
  instrument VARCHAR,
@@ -9,14 +9,14 @@ CREATE TABLE musicians(
  genre VARCHAR
 );
 
-CREATE TABLE song(
+CREATE TABLE  IF NOT EXISTS song(
  id int  PRIMARY KEY auto_increment,
 title VARCHAR,
 genre VARCHAR,
 musicianId int
 );
 
-CREATE TABLE recordLabel(
+CREATE TABLE  IF NOT EXISTS recordLabel(
 id int PRIMARY KEY auto_increment,
 name VARCHAR,
 location VARCHAR,

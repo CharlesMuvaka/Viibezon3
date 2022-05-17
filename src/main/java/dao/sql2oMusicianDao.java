@@ -1,4 +1,4 @@
-package Dao;
+package dao;
 
 import models.Musician;
 import models.Song;
@@ -11,8 +11,8 @@ public class sql2oMusicianDao implements MusicianDao {
     @Override
     public void add(Musician musician) {
         String sql = "INSERT INTO musicians (name, instrument,artisttype,recordlabelid,genre) VALUES (:name, :instrument,:artisttype,:recordlabelid,:genre)";
-        try (Connection con = DB.sql2o.open()) {
-            int id = (int) con.createQuery(sql, true)
+        try (Connection conn = db.sql2o.open()) {
+            int id = (int) conn.createQuery(sql, true)
                     .addParameter("name", musician.getName())
                     .addParameter("instrument", musician.getInstrument())
                     .addParameter("artisttype",musician.getArtistType())
@@ -29,7 +29,7 @@ public class sql2oMusicianDao implements MusicianDao {
     public List<Musician> getAll() {
 
         String sql = "SELECT * FROM musicians";
-        try (Connection con = DB.sql2o.open()) {
+        try (Connection con = db.sql2o.open()) {
             return con.createQuery(sql)
                     .executeAndFetch(Musician.class);
         }
@@ -37,7 +37,7 @@ public class sql2oMusicianDao implements MusicianDao {
 
     @Override
     public Musician findById(int id) {
-        try (Connection con = DB.sql2o.open()) {
+        try (Connection con = db.sql2o.open()) {
             return con.createQuery("SELECT * FROM musicians WHERE id = :id")
                     .addParameter("id", id)
                     .executeAndFetchFirst(Musician.class);
@@ -47,7 +47,7 @@ public class sql2oMusicianDao implements MusicianDao {
     @Override
     public void update(int id, Musician musician) {
         String sql = "UPDATE musicians SET name = :name,artisttype=:artisttype,recordlabelid=:recordlabelid,genre=:genre, instrument = :instrument WHERE id = :id";
-        try (Connection con = DB.sql2o.open()) {
+        try (Connection con = db.sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("name", musician.getName())
                     .addParameter("instrument", musician.getInstrument())
@@ -62,7 +62,7 @@ public class sql2oMusicianDao implements MusicianDao {
     @Override
     public void deleteById(int id) {
         String sql = "DELETE FROM musicians WHERE id = :id";
-        try (Connection con = DB.sql2o.open()) {
+        try (Connection con = db.sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("id", id)
                     .executeUpdate();
@@ -72,7 +72,7 @@ public class sql2oMusicianDao implements MusicianDao {
     @Override
     public List<Song> getAllSongs(int id) {
         String sql = "SELECT * FROM songs WHERE musicianid = :id";
-        try (Connection con = DB.sql2o.open()) {
+        try (Connection con = db.sql2o.open()) {
             return con.createQuery(sql)
                     .addParameter("id", id)
                     .executeAndFetch(Song.class);

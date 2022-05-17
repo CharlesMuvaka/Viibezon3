@@ -1,4 +1,4 @@
-import Dao.sql2oMusicianDao;
+import dao.sql2oMusicianDao;
 import models.Musician;
 
 public class App {
