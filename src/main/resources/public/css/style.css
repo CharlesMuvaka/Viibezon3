@@ -1,0 +1,70 @@
+.cont{
+    width: 98%;
+    border-radius: 5px;
+    height: 150px;
+}
+.sideNav{
+    border-bottom: 1px solid rgb(2, 7, 24);
+    border-right: 1px solid rgb(2, 7, 24);
+}
+.mainCont{
+    background-color: rgb(2, 7, 24);
+    border: 1px;
+    border-radius: 10px;
+
+}
+.pro{
+    height: 50px;
+    width: 60px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px grey;
+}
+.button1{
+    height: 50px;
+    width: 100px;
+    border-radius: 20px;
+}
+span{
+    color: yellow;
+}
+h3{
+    color: blue;
+}
+a.navbar-brand{
+    font-family: 'Alfa Slab One', cursive;
+    color: blue!important;
+}
+
+form{
+    align-items: center;
+    color: white;
+    background-color:rgb(2, 7, 24);
+    height: auto;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.fa-regular{
+    color: blue!important;
+    font-size: 20px;
+}
+.row1{
+    width: 25%;
+}
+.cont1{
+    background-color: rgb(2, 7, 24);
+    border: 1px;
+    border-radius: 10px;
+}
+.tag{
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+    background-color: blue ;
+    border-radius: 5px;
+}
