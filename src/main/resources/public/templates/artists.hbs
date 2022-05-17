@@ -1,7 +1,7 @@
 {{#partial "content"}}
     <div class="container-fluid">
         <nav class="navbar navbar-expand-sm navbar-dark ">
-            <a class="navbar-brand ms-5"><img class="pro" src="/images/pro.jpg">VIBE</span>ZON3</a>
+            <a class="navbar-brand ms-5"><img class="pro me-2" src="./images/pro.jpg" alt="logo"><span>VIBE</span>ZON3</a>
             <button
                     class="navbar-toggler"
                     type="button"
@@ -21,6 +21,42 @@
             </div>
         </nav>
     </div>
+
+    <div class="container-fluid text-white">
+        <div class="row">
+            <h4 class="text-center">Below is a list of the top Musicians in the region</h4>
+            <div class="divvv d-flex justify-content-end my-3">
+                <a class="tag me-5"  href="/form.html">Add New</a>
+            </div>
+            <div class="col-sm-3">
+
+                <div class="cont1 w-100">
+                    <div class="first d-flex flex-column align-items-center">
+                        <h5 class="my-3"> Artist Name</h5>
+                        <img class="cont" src="/images/shans.jpg" alt="">
+                    </div>
+                    <p class="m-1">Genre</p>
+                    <p class="m-1">Record Label</p>
+                    <p class="m-1">Instruments</p>
+                    <p class="m-1">Hit Song</p>
+                    <p class="text-center">
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </p>
+                    <div class="rate mb-3 d-flex justify-content-around align-items-center">
+                        <a class="tag" href="">Delete</a>
+                        <a class="tag" href="">update</a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
 {{/partial}}
 {{>layout.hbs}}
