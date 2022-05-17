@@ -8,14 +8,14 @@ CREATE TABLE musicians(
  recordLabelId int
 );
 
-CREATE TABLE song(
+CREATE TABLE songs(
  id serial PRIMARY KEY,
 title VARCHAR,
 genre VARCHAR,
-musicianId int
+musicianid int
 );
 
-CREATE TABLE recordLabel(
+CREATE TABLE record_labels(
 id serial PRIMARY KEY,
 name VARCHAR,
 location VARCHAR,
