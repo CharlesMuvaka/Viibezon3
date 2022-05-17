@@ -39,7 +39,7 @@ public class sql2oSongDao implements SongDao {
 
     @Override
     public void update(int id, Song song) {
-        String sql = "UPDATE songs SET title = :title, genre = :genre, musician_id = :musician_id WHERE id = :id";
+        String sql = "UPDATE songs SET title = :title, genre = :genre, musicianid = :musicianid WHERE id = :id";
         try (var connection = db.sql2o.open()) {
             connection.createQuery(sql)
                     .bind(song)
