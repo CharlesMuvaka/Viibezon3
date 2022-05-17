@@ -8,7 +8,7 @@ public class sql2oSongDao implements SongDao {
 
     @Override
     public void add(Song song) {
-        String sql = "INSERT INTO songs (title, genre, musician_id) VALUES (:title,:genre,:musician_id)";
+        String sql = "INSERT INTO songs (title, genre, musicianid) VALUES (:title,:genre,:musicianid)";
         try (var connection = db.sql2o.open()) {
             int id =(int)connection.createQuery(sql , true)
                     .bind(song)
