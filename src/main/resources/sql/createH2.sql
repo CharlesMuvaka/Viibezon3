@@ -9,14 +9,14 @@ CREATE TABLE  IF NOT EXISTS musicians(
  genre VARCHAR
 );
 
-CREATE TABLE  IF NOT EXISTS song(
+CREATE TABLE  IF NOT EXISTS songs(
  id int  PRIMARY KEY auto_increment,
 title VARCHAR,
 genre VARCHAR,
-musicianId int
+ musicianid int
 );
 
-CREATE TABLE  IF NOT EXISTS recordLabel(
+CREATE TABLE  IF NOT EXISTS record_labels(
 id int PRIMARY KEY auto_increment,
 name VARCHAR,
 location VARCHAR,
