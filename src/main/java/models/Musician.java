@@ -9,14 +9,23 @@ public class Musician {
 
     private  int recordLabelId;
 
+    private String genre;
 
 
+    public String getGenre() {
+        return genre;
+    }
 
-    public Musician(String name, String instrument, String artistType,int recordLabelId) {
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public Musician(String name, String instrument, String artistType, int recordLabelId, String genre) {
         this.name = name;
         this.instrument = instrument;
         this.artistType = artistType;
         this.recordLabelId = recordLabelId;
+        this.genre = genre;
     }
 
     public String getArtistType() {
