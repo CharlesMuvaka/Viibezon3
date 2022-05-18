@@ -1,5 +1,6 @@
 import dao.sql2oMusicianDao;
 import dao.sql2oRecordLabelDao;
+import dao.sql2oSongDao;
 import models.Musician;
 import models.RecordLabel;
 import spark.ModelAndView;
@@ -11,6 +12,11 @@ import java.util.Map;
 
 import static spark.Spark.*;
 public class App {
+
+    static sql2oMusicianDao musicianDao = new sql2oMusicianDao();
+    sql2oRecordLabelDao recordLabelDao = new sql2oRecordLabelDao();
+    sql2oSongDao songDao = new sql2oSongDao();
+
     public static void main(String[] args) {
         staticFileLocation("/public");
 
@@ -50,7 +56,22 @@ public class App {
         get("/artistForm",(request, response)->{
             Map<String, Object> templateData = new HashMap<>();
 
+
             return new ModelAndView(templateData, "form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/artistForm",(request, response)->{
+            Map<String, Object> templateData = new HashMap<>();
+            String name = request.queryParams("name");
+            String instrument = request.queryParams("instrument");
+            String imageUrl = request.queryParams("imageUrl");
+            int recordLabel = Integer.parseInt(request.queryParams("label"));
+            String artistType = request.queryParams("artistType");
+
+
+            musicianDao.add(new Musician(name, instrument,imageUrl,recordLabel, artistType));
+
+            return new ModelAndView(templateData, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
 

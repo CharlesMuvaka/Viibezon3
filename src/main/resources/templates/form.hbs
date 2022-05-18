@@ -16,36 +16,46 @@
     </div>
 
     <div class="container-fluid">
+
         <div class="row">
             <div class="col-sm-12  d-flex flex-column align-items-center justify-content-center ">
                 <h3 class="text-white my-4">Please fill in your details.</h3>
                 <i class="text-end">On submission animal will be stored and you will be redirected to the homepage</i>
-                <form class="w-75" action="/animalNormal" method="post">
+
+                <form class="w-75" action="/artistForm" method="post">
 
                     <div class="form-group w-75 mt-4">
-                        <label for="animalName">1. Enter Name of the artist</label>
-                        <input required type="text" class="form-control" name="sightAnimalName" id="animalName">
+                        <label for="name">1. Enter Name of the artist</label>
+                        <input required type="text" class="form-control" name="Name" id="name">
                     </div>
+<!--                    instrument VARCHAR,-->
+<!--                    artistType VARCHAR,-->
+<!--                    recordLabelId int,-->
+<!--                    avatarUrl VARCHAR,-->
+<!--                    genre VARCHAR-->
 
                     <div class="form-group w-75 my-2">
-                        <label for="rangerName">2. Enter music genre </label>
-                        <input required type="text" name="rangerName" class="form-control"  id="rangerName">
+                        <label for="genre"> Enter music genre </label>
+                        <input required type="text" name="genre" class="form-control"  id="genre">
                     </div>
                     <div class="form-group w-75 my-2">
-                        <label for="location">3. Select animal species Sighted</label>
-                        <select required class="form-select my-1" name="sightAnimalType" class="form-control" id="location">
-                            <option value="Normal Animal">Normal Animal</option>
-                            <option value="savannah">Rare Species</option>
+                        <label for="artistType"> Enter Artist-Type </label>
+                        <select required class="form-select my-1" name="artistType" class="form-control" id="artistType">
+                            <option value="Vocalist">Vocalist</option>
+                            <option value="Instrumentalist">Instrumentalist</option>
                         </select>
                     </div>
+                    <div class="form-group w-75 my-2">
+                        <label for="instrument">Enter an Instrument</label>
+                        <input  type="text" name="instrument" class="form-control"  id="instrument">
+                    </div>
 
                     <div class="form-group w-75 my-2">
-                        <label for="location">6. Select place of the location</label>
-                        <select required class="form-select my-1" name="locationName" class="form-control" id="location">
-                            <option value="Savannah">Savannah</option>
-                            <option value="Mushy">Mushy</option>
-                            <option value="Equatorial">Equatorial</option>
-                            <option value="Swampy">Swampy</option>
+                        <label for="label"> Select a label</label>
+                        <select required class="form-select my-1" name="label" class="form-control" id="label">
+                           {{#each label}} <option value="{{id}}">{{name}}</option>{{/each}}
+
+
                         </select>
                     </div>
                     <button type="submit" class="btn w-75 my-2 " id="myButt">Submit</button>
