@@ -5,7 +5,9 @@ CREATE TABLE musicians(
  name VARCHAR,
  instrument VARCHAR,
  artistType VARCHAR,
- recordLabelId int
+ recordLabelId int,
+ avatarUrl VARCHAR,
+ genre VARCHAR
 );
 
 CREATE TABLE songs(
@@ -19,5 +21,6 @@ CREATE TABLE record_labels(
 id serial PRIMARY KEY,
 name VARCHAR,
 location VARCHAR,
-manager VARCHAR
+manager VARCHAR,
+avatarUrl VARCHAR
 );
