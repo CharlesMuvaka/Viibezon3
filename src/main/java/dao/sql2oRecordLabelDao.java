@@ -13,12 +13,13 @@ public class sql2oRecordLabelDao implements RecordLabelDao {
 
     @Override
     public void add(RecordLabel recordLabel) {
-        String sql = "INSERT INTO record_labels (name, location,manager) VALUES (:name, :location,:manager)";
+        String sql = "INSERT INTO record_labels (name, location,manager, avatarurl) VALUES (:name, :location,:manager, :avatarUrl)";
         try (Connection con = db.sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
                     .addParameter("name", recordLabel.getName())
                     .addParameter("location", recordLabel.getLocation())
                     .addParameter("manager",recordLabel.getManager())
+                    .addParameter("avatarUrl",recordLabel.getAvatarUrl())
                     .executeUpdate()
                     .getKey();
             recordLabel.setId(id);

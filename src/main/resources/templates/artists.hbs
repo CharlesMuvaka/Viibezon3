@@ -13,9 +13,9 @@
             </button>
             <div class=" collapse navbar-collapse me-5" id="yes">
                 <ul class="navbar-nav ms-auto">
-                    <li><a class="nav-link  p2 px-4">Home</a></li>
-                    <li><a class="nav-link  p2 px-4">Artists</a></li>
-                    <li><a class="nav-link  p2 px-4">Labels</a></li>
+                    <li><a href="/"class="nav-link  p2 px-4">Home</a></li>
+                    <li><a href="/artists" class="nav-link  p2 px-4">Artists</a></li>
+                    <li><a href="/labels" class="nav-link  p2 px-4">Labels</a></li>
                     <li><a class="nav-link  p2 px-4">News</a></li>
                 </ul>
             </div>
@@ -24,20 +24,22 @@
 
     <div class="container-fluid text-white">
         <div class="row">
-            <h4 class="text-center">Below is a list of the top Music Record Labels in the region</h4>
+            <h4 class="text-center">Below is a list of the top Musicians in the region</h4>
             <div class="divvv d-flex justify-content-end my-3">
-                <a class="tag me-5"  href="/form.html">Add New</a>
+                <a class="tag me-5"  href="/artistForm">Add New</a>
             </div>
+            {{#each artists}}
             <div class="col-sm-3">
 
                 <div class="cont1 w-100">
                     <div class="first d-flex flex-column align-items-center">
-                        <h5 class="my-3"> Label Name</h5>
-                        <img class="cont" src="/images/label3.png" alt="">
+                        <h5 class="my-3">{{name}}</h5>
+                        <img class="cont" src={{avatarUrl}} alt="">
                     </div>
-                    <p class="m-1">Located at</p>
-                    <p class="m-1">Label Manager</p>
-                    <p class="m-1">Instruments</p>
+                    <p class="m-1">Artist Genre: {{ genre}}</p>
+                    <p class="m-1">Artist Singing Style: {{ artistType}}</p>
+                    <p class="m-1">Artists best Instrument:{{ instrument}}</p>
+                    <p class="m-1">Hit Song</p>
                     <p class="text-center">
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
@@ -48,13 +50,13 @@
                     <div class="rate mb-3 d-flex justify-content-around align-items-center">
                         <a class="tag" href="">Delete</a>
                         <a class="tag" href="">update</a>
-
                     </div>
                 </div>
-
             </div>
+            {{/each}}
         </div>
     </div>
+
 
 {{/partial}}
 {{>layout.hbs}}

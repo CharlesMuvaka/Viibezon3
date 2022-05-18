@@ -13,6 +13,8 @@ public class Musician {
 
     private String genre;
 
+    private String avatarUrl;
+
 
     public String getGenre() {
         return genre;
@@ -28,6 +30,14 @@ public class Musician {
         this.artistType = artistType;
         this.recordLabelId = recordLabelId;
         this.genre = genre;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
     public String getArtistType() {

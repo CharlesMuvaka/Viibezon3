@@ -1,0 +1,63 @@
+{{#partial "content"}}
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-dark ">
+            <a class="navbar-brand ms-5"><img class="pro me-2" src="./images/pro.jpg" alt="logo"><span>VIBE</span>ZON3</a>
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#yes"
+                    aria-label="toggle navigation"
+                    aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class=" collapse navbar-collapse me-5" id="yes">
+                <ul class="navbar-nav ms-auto">
+                    <li><a href="/" class="nav-link  p2 px-4">Home</a></li>
+                    <li><a href="/artists" class="nav-link  p2 px-4">Artists</a></li>
+                    <li><a href="/labels" class="nav-link  p2 px-4">Labels</a></li>
+                    <li><a class="nav-link  p2 px-4">News</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid text-white">
+        <div class="row">
+            <h4 class="text-center">Below is a list of the top Music Record Labels in the region</h4>
+            <div class="divvv d-flex justify-content-end my-3">
+                <a class="tag me-5"  href="/artistForm">Add New</a>
+            </div>
+            {{#each labels}}
+
+                <div class="col-sm-3">
+
+                    <div class="cont1 w-100">
+                        <div class="first d-flex flex-column align-items-center">
+                            <h5 class="my-3">{{ name }}</h5>
+                            <img class="cont" src={{avatarUrl}} alt="">
+                        </div>
+                        <p class="m-1">Located at: {{ location }}</p>
+                        <p class="m-1">Label Manager: {{ manager }}</p>
+                        <p class="m-1">Instruments</p>
+                        <p class="text-center">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </p>
+                        <div class="rate mb-3 d-flex justify-content-around align-items-center">
+                            <a class="tag" href="">Delete</a>
+                            <a class="tag" href="">update</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+{{/partial}}
+{{>layout.hbs}}
