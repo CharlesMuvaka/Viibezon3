@@ -50,7 +50,7 @@ form{
 
 }
 .fa-regular{
-    color: blue!important;
+    color: rgb(197, 197, 55)!important;
     font-size: 20px;
 }
 .row1{
@@ -65,6 +65,9 @@ form{
     text-decoration: none;
     color: black;
     padding: 8px;
-    background-color: blue ;
+    background-color: rgb(197, 197, 55) ;
     border-radius: 5px;
+}
+#myButt{
+    background-color: rgb(197, 197, 55);
 }

@@ -6,7 +6,8 @@ CREATE TABLE  IF NOT EXISTS musicians(
  instrument VARCHAR,
  artistType VARCHAR,
  recordLabelId int,
- genre VARCHAR
+ genre VARCHAR,
+ avatarUrl VARCHAR
 );
 
 CREATE TABLE  IF NOT EXISTS songs(
@@ -20,5 +21,6 @@ CREATE TABLE  IF NOT EXISTS record_labels(
 id int PRIMARY KEY auto_increment,
 name VARCHAR,
 location VARCHAR,
-manager VARCHAR
+manager VARCHAR,
+avatarUrl VARCHAR
 );

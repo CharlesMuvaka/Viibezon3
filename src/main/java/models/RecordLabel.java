@@ -8,11 +8,21 @@ public class RecordLabel {
     private String location;
     private String manager;
 
+    private String avatarUrl;
+
 
     public RecordLabel(String name, String location,String manager ) {
         this.name = name;
         this.location = location;
         this.manager = manager;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
     public String getManager() {
