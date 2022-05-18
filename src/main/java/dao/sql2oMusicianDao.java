@@ -10,13 +10,14 @@ import java.util.List;
 public class sql2oMusicianDao implements MusicianDao {
     @Override
     public void add(Musician musician) {
-        String sql = "INSERT INTO musicians (name, instrument,artisttype,recordlabelid,genre) VALUES (:name, :instrument,:artisttype,:recordlabelid,:genre)";
+        String sql = "INSERT INTO musicians (name, instrument,artisttype,recordlabelid,avatarurl, genre) VALUES (:name, :instrument,:artisttype,:recordlabelid,:avatarUrl, :genre)";
         try (Connection conn = db.sql2o.open()) {
             int id = (int) conn.createQuery(sql, true)
                     .addParameter("name", musician.getName())
                     .addParameter("instrument", musician.getInstrument())
                     .addParameter("artisttype",musician.getArtistType())
                     .addParameter("recordlabelid",musician.getRecordLabelId())
+                    .addParameter("avatarUrl",musician.getAvatarUrl())
                     .addParameter("genre",musician.getGenre())
                     .executeUpdate()
                     .getKey();
