@@ -83,15 +83,17 @@ public class App {
         get("update-artist/:id", (request, response) -> {
             int id = Integer.parseInt(request.params("id"));
             Map<String, Object> model = new HashMap<String, Object>();
+            RecordLabel label = recordLabelDao.findById(musicianDao.findById(id).getRecordLabelId());
             boolean update = true;
             boolean position = true;
             model.put("id", id);
             model.put("update", update);
             model.put("position", position);
+            model.put("labels",label);
             return modelAndView(model, "form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/update-label/:id", (request, response) -> {
+        post("/update-artist/:id", (request, response) -> {
             int id = Integer.parseInt(request.params("id"));
             String name = request.queryParams("name");
             String instrument = request.queryParams("instrument");
