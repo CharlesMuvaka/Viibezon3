@@ -1,5 +1,66 @@
 {{#partial "content"}}
+{{#if update}}
 
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark main1">
+            <div class="w-50">
+                <a class="navbar-brand ms-5"><img class="pro me-2" src="./images/pro.jpg" alt="logo" class="logo"><span>VIBE</span>ZON3</a>
+
+            </div>
+            <div class="w-50 ms-auto d-flex justify-content-end">
+                <a href="#" class="button1 btn-light mx-3 text-center"><i class="fa-regular fa-house-blank"></i></a>
+                <i class="fa-regular fa-house-blank"></i>
+
+            </div>
+
+        </nav>
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-12  d-flex flex-column align-items-center justify-content-center ">
+                <h3 class="text-white my-4">Update your details.</h3>
+                <i class="text-end">On submission animal will be stored and you will be redirected to the homepage</i>
+
+                <form class="w-75" action="/update-artist/{{id}}" method="post">
+
+                    <div class="form-group w-75 mt-4">
+                        <label for="name">1. Enter Name of the artist</label>
+                        <input required type="text" class="form-control" name="name" id="name">
+                    </div>
+
+                    <div class="form-group w-75 my-2">
+                        <label for="genre"> Enter music genre </label>
+                        <input required type="text" name="genre" class="form-control"  id="genre">
+                    </div>
+                    <div class="form-group w-75 my-2">
+                        <label for="artistType"> Enter Artist-Type </label>
+                        <select required class="form-select my-1" name="artistType" class="form-control" id="artistType">
+                            <option value="Vocalist">Vocalist</option>
+                            <option value="Instrumentalist">Instrumentalist</option>
+                        </select>
+                    </div>
+                    <div class="form-group w-75 my-2">
+                        <label for="instrument">Enter an Instrument</label>
+                        <input  type="text" name="instrument" class="form-control"  id="instrument">
+                    </div>
+
+                    <div class="form-group w-75 my-2">
+                        <label for="label"> Select a label</label>
+                        <select required class="form-select my-1" name="label" class="form-control" id="label">
+                            {{#each labels}} <option value="{{id}}">{{name}}</option>{{/each}}
+
+
+                        </select>
+                    </div>
+                    <button type="submit" class="btn w-75 my-2 " id="myButt">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{{else}}
     <div class="container-fluid">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark main1">
             <div class="w-50">
@@ -26,13 +87,8 @@
 
                     <div class="form-group w-75 mt-4">
                         <label for="name">1. Enter Name of the artist</label>
-                        <input required type="text" class="form-control" name="Name" id="name">
+                        <input required type="text" class="form-control" name="name" id="name">
                     </div>
-<!--                    instrument VARCHAR,-->
-<!--                    artistType VARCHAR,-->
-<!--                    recordLabelId int,-->
-<!--                    avatarUrl VARCHAR,-->
-<!--                    genre VARCHAR-->
 
                     <div class="form-group w-75 my-2">
                         <label for="genre"> Enter music genre </label>
@@ -53,8 +109,7 @@
                     <div class="form-group w-75 my-2">
                         <label for="label"> Select a label</label>
                         <select required class="form-select my-1" name="label" class="form-control" id="label">
-                           {{#each label}} <option value="{{id}}">{{name}}</option>{{/each}}
-
+                           {{#each labels}} <option value="{{id}}">{{name}}</option>{{/each}}
 
                         </select>
                     </div>
@@ -63,6 +118,6 @@
             </div>
         </div>
     </div>
-
+{{/if}}
 {{/partial}}
 {{>layout.hbs}}

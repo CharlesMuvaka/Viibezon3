@@ -1,0 +1,98 @@
+{{#partial "content"}}
+    {{#if update}}
+
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark main1">
+                <div class="w-50">
+                    <a class="navbar-brand ms-5"><img class="pro me-2" src="../images/pro.jpg" alt="logo" class="logo"><span>VIBE</span>ZON3</a>
+
+                </div>
+                <div class="w-50 ms-auto d-flex justify-content-end">
+                    <a href="/labels" class="btn btn-light mx-3 text-center text-dark"><b class="fa-regular fa-house-blank">Back</b></a>
+                    <i class="fa-regular fa-house-blank"></i>
+
+                </div>
+
+            </nav>
+        </div>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-sm-12  d-flex flex-column align-items-center justify-content-center ">
+                    <h3 class="text-white my-4">Enter your update details</h3>
+                    <i class="text-end">On submission label will be updated and you will be redirected to the labels page</i>
+
+                    <form class="w-75" action="/update-label/{{id}}" method="post">
+
+                        <div class="form-group w-75 mt-4">
+                            <label for="name"> Enter the name of the label</label>
+                            <input required type="text" class="form-control" name="name" id="name">
+                        </div>
+
+                        <div class="form-group w-75 my-2">
+                            <label for="manager"> Enter the manager name</label>
+                            <input required type="text" name="manager" id="manager"class="form-control">
+                        </div>
+                        <div class="form-group w-75 my-2">
+                            <label for="location"> Enter music label location</label>
+                            <input required type="text" name="location" class="form-control"  id="location">
+                        </div>
+
+
+                        <button type="submit" class="btn w-75 my-2 " id="myButt">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    {{else}}
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark main1">
+            <div class="w-50">
+                <a class="navbar-brand ms-5"><img class="pro me-2" src="/images/pro.jpg" alt="logo" class="logo"><span>VIBE</span>ZON3</a>
+
+            </div>
+            <div class="w-50 ms-auto d-flex justify-content-end">
+                <a href="/labels" class="btn btn-light mx-3 text-center text-dark"><b class="fa-regular fa-house-blank">Back</b></a>
+                <i class="fa-regular fa-house-blank"></i>
+
+            </div>
+
+        </nav>
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-12  d-flex flex-column align-items-center justify-content-center ">
+                <h3 class="text-white my-4">Please fill the label details</h3>
+                <i class="text-end">On submission label will be stored and you will be redirected to the labels page</i>
+
+                <form class="w-75" action="/labelform" method="post">
+
+                    <div class="form-group w-75 mt-4">
+                        <label for="name"> Enter the name of the label</label>
+                        <input required type="text" class="form-control" name="name" id="name">
+                    </div>
+
+                    <div class="form-group w-75 my-2">
+                        <label for="manager"> Enter the manager name</label>
+                        <input required type="text" name="manager" id="manager"class="form-control">
+                    </div>
+                    <div class="form-group w-75 my-2">
+                        <label for="location"> Enter music label location</label>
+                        <input required type="text" name="location" class="form-control"  id="location">
+                    </div>
+
+
+                    <button type="submit" class="btn w-75 my-2 " id="myButt">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+
+
+{{/partial}}
+{{>layout.hbs}}

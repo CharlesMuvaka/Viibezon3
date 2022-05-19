@@ -4,18 +4,23 @@ import dao.sql2oSongDao;
 import models.Musician;
 import models.RecordLabel;
 import spark.ModelAndView;
+import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
+
+import static spark.route.HttpMethod.post;
+
 public class App {
 
     static sql2oMusicianDao musicianDao = new sql2oMusicianDao();
-    sql2oRecordLabelDao recordLabelDao = new sql2oRecordLabelDao();
-    sql2oSongDao songDao = new sql2oSongDao();
+    static sql2oRecordLabelDao recordLabelDao = new sql2oRecordLabelDao();
+   static sql2oSongDao songDao = new sql2oSongDao();
 
     public static void main(String[] args) {
         staticFileLocation("/public");
@@ -33,10 +38,8 @@ public class App {
             Map<String, Object> templateData = new HashMap<>();
             sql2oMusicianDao dao = new sql2oMusicianDao();
             List<Musician> allMusicians = dao.getAll();
-            System.out.println(allMusicians);
-
+           // System.out.println(allMusicians);
             templateData.put("artists", allMusicians);
-
             return new ModelAndView(templateData, "artists.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -52,10 +55,11 @@ public class App {
             return new ModelAndView(templateData, "labels.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //get Musicians form
+        //////////////////////////////////MUSICIAN//////////////////////////////////////
         get("/artistForm",(request, response)->{
             Map<String, Object> templateData = new HashMap<>();
-
+            List<RecordLabel> labels = recordLabelDao.getAll();
+            templateData.put("labels",labels);
 
             return new ModelAndView(templateData, "form.hbs");
         }, new HandlebarsTemplateEngine());
@@ -64,16 +68,92 @@ public class App {
             Map<String, Object> templateData = new HashMap<>();
             String name = request.queryParams("name");
             String instrument = request.queryParams("instrument");
-            String imageUrl = request.queryParams("imageUrl");
+            //String imageUrl = request.queryParams("imageUrl");
             int recordLabel = Integer.parseInt(request.queryParams("label"));
             String artistType = request.queryParams("artistType");
-
-
-            musicianDao.add(new Musician(name, instrument,imageUrl,recordLabel, artistType));
-
-            return new ModelAndView(templateData, "success.hbs");
+            String genre = request.queryParams("genre");
+            Musician musician = new Musician(name, instrument,artistType,recordLabel,genre);
+            musician.setAvatarUrl("/images/soon2.jpeg");
+            musicianDao.add(musician);
+            response.redirect("/artists");
+           return null;
         }, new HandlebarsTemplateEngine());
 
+        get("update-artist/:id",(request, response)->{
+            int id = Integer.parseInt(request.params("id"));
+            Map<String,Object> model = new HashMap<String,Object>();
+            boolean update = true;
+            model.put("id",id);
+            model.put("update",update);
+            return modelAndView(model,"form.hbs");
+        },new HandlebarsTemplateEngine());
+
+        post("/update-label/:id",(request, response)->{
+            int id = Integer.parseInt(request.params("id"));
+            String name = request.queryParams("name");
+            String instrument = request.queryParams("instrument");
+           // String imageUrl = request.queryParams("imageUrl");
+            int recordLabel = Integer.parseInt(request.queryParams("label"));
+            String artistType = request.queryParams("artistType");
+            String genre = request.queryParams("genre");
+            Musician musician = new Musician(name, instrument,artistType,recordLabel,genre);
+            musician.setAvatarUrl("/images/soon2.jpeg");
+            musicianDao.update(id,musician);
+            response.redirect("/artists");
+            return null;
+        },new HandlebarsTemplateEngine());
+
+        get("delete-label/:id",(request,response)->{
+            int id = Integer.parseInt(request.params("id"));
+            musicianDao.deleteById(id);
+            response.redirect("/artists");
+            return null;
+        },new HandlebarsTemplateEngine());
+
+        ////////////////////////LABEL////////////////////////////////
+        get("/labelform",(request, response)->{
+            Map<String,Object> model = new HashMap<String,Object>();
+            return modelAndView(model,"labelform.hbs");
+        },new HandlebarsTemplateEngine());
+
+        post("/labelform",(request, response)->{
+            Map<String,Object> model = new HashMap<String,Object>();
+            String name = request.queryParams("name");
+            String location = request.queryParams("location");
+            String manager = request.queryParams("manager");
+            RecordLabel label = new RecordLabel(name, location, manager);
+            label.setAvatarUrl("/images/soon2.jpeg");
+            recordLabelDao.add(label);
+            response.redirect("/labels");
+            return null;
+        });
+        get("update-label/:id",(request, response)->{
+            int id = Integer.parseInt(request.params("id"));
+            Map<String,Object> model = new HashMap<String,Object>();
+            boolean update = true;
+            model.put("id",id);
+            model.put("update",update);
+            return modelAndView(model,"labelform.hbs");
+        },new HandlebarsTemplateEngine());
+
+        post("/update-label/:id",(request, response)->{
+            int id = Integer.parseInt(request.params("id"));
+            String name = request.queryParams("name");
+            String location = request.queryParams("location");
+            String manager = request.queryParams("manager");
+            RecordLabel label = new RecordLabel(name, location, manager);
+            label.setAvatarUrl("/images/soon2.jpeg");
+            recordLabelDao.update(id,label);
+            response.redirect("/labels");
+            return null;
+        },new HandlebarsTemplateEngine());
+
+        get("delete-label/:id",(request,response)->{
+            int id = Integer.parseInt(request.params("id"));
+            recordLabelDao.deleteById(id);
+            response.redirect("/labels");
+            return null;
+        },new HandlebarsTemplateEngine());
 
 
 
