@@ -30,13 +30,13 @@
             </div>
             {{#each labels}}
 
-                <div class="col-sm-3">
+                <div class="col-sm-3 ">
 
-                    <div class="cont1 w-100">
-                        <div class="first d-flex flex-column align-items-center">
-                            <h5 class="my-3">{{ name }}</h5>
+                    <div class="cont1 w-100 pb-2">
+                        <a href="label/{{id}}" class="text-white">     <div class="first d-flex flex-column align-items-center">
+                          <a href="label/{{id}}" class="text-white"> <h5 class="my-3">{{ name }}</h5></a>
                             <img class="cont" src={{avatarUrl}} alt="">
-                        </div>
+                        </div></a>
                         <p class="m-1">Located at: {{ location }}</p>
                         <p class="m-1">Label Manager: {{ manager }}</p>
 <!--                        <p class="m-1">Instruments</p>-->

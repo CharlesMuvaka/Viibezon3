@@ -1,0 +1,130 @@
+{{#partial "content"}}
+
+
+    <div class="container mt-5">
+        <div class="row h-100  ">
+            <div class="col-md-4">
+                <div class="d-flex sideNav flex-column flex-shrink-0 p-3 text-white bg-dark"
+                     style="width: 100%; height: 100%;">
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" aria-current="page">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#home"></use>
+                                </svg>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/artists" class="nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#speedometer2"></use>
+                                </svg>
+                                Artists
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/labels" class="nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#table"></use>
+                                </svg>
+                                Labels
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#grid"></use>
+                                </svg>
+                                Top News
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#people-circle"></use>
+                                </svg>
+                                About
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                           id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="/images/label.jpeg" alt="" width="32" height="32" class="rounded-circle me-2">
+                            <strong>Account</strong>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                            <li><a class="dropdown-item" href="#">New project</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 text-white ">
+
+                <div class="mainCont d-flex w-100 main1 ">
+
+                    <div class="cont1 w-50 ">
+                        <div class="first d-flex flex-column align-items-center">
+                            <h5 class="my-3">{{artist.name}}</h5>
+                            <img class="cont h-75" src="{{artist.avatarUrl}}" alt="">
+                            <p class="m-1">Artist Genre: {{artist.genre}}</p>
+                            <p class="m-1">Artist Type: {{ artist.artistType}}</p>
+                            <p class="m-1">Artist's Instrument: {{ artist.instrument}}</p>
+                            <p>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </p>
+
+                        </div>
+                        <div class="rate mb-3 d-flex justify-content-around align-items-center">
+                            <a class="tag " href="/delete-artist/{{artist.id}}">Delete</a>
+                            <a class="tag" href="/update-artist/{{artist.id}}">Update</a>
+                        </div>
+                    </div>
+                    <div class="cont2 w-50">
+                        <div class="first d-flex flex-column align-items-center">
+                            <h5 class="my-3">Best Songs</h5>
+                            <ul>
+                                {{#each song}}
+                                    <li><a href="/song/{{id}}" class="text-white">{{title}}</a></li>
+                                {{/each}}
+
+                            </ul>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="rate mb-3 d-flex justify-content-around align-items-center">
+                            <a href="/songform/{{artist.id}}">
+                                <button class="mt-1 btn btn-light">Add songs</button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="w-50 ms-auto mt-3 d-flex justify-content-end">
+        <a href="/artists" class="btn btn-light mx-3 text-center text-dark"><b class="fa-regular fa-house-blank">Back</b></a>
+        <i class="fa-regular fa-house-blank"></i>
+
+    </div>
+
+{{/partial}}
+{{>layout.hbs}}

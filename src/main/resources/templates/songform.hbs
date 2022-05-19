@@ -1,0 +1,105 @@
+{{#partial "content"}}
+    {{#if update}}
+
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark main1">
+                <div class="w-50">
+                    <a class="navbar-brand ms-5"><img class="pro me-2" src="../images/pro.jpg" alt="logo" class="logo"><span>VIBE</span>ZON3</a>
+
+                </div>
+                <div class="w-50 ms-auto d-flex justify-content-end">
+                    <a href="/labels" class="btn btn-light mx-3 text-center text-dark"><b class="fa-regular fa-house-blank">Back</b></a>
+                    <i class="fa-regular fa-house-blank"></i>
+
+                </div>
+
+            </nav>
+        </div>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-sm-12  d-flex flex-column align-items-center justify-content-center ">
+                    <h3 class="text-white my-4">Enter your update song details</h3>
+\
+                    <form class="w-75" action="/update-song/{{id}}" method="post">
+
+                        <div class="form-group w-75 mt-4">
+                            <label for="title"> Enter the Song Title</label>
+                            <input required type="text" class="form-control" name="title" id="title">
+                        </div>
+
+                        <div class="form-group w-75 my-2">
+                            <label for="genre"> Enter the song Genre</label>
+                            <input required type="text" name="genre" id="genre" class="form-control">
+                        </div>
+
+                        <div class="form-group w-75 my-2">
+                            <label for="arist"> Select an Artist</label>
+                            <select required class="form-select my-1" name="artist" id="artist" class="form-control" >
+                                <option value="{{artist.id}}">{{artist.name}}</option>
+
+                            </select>
+                        </div>
+                        <input type="hidden" id="songid" name="songid" value="{{id}}">
+
+                        <button type="submit" class="btn w-75 my-2 " id="myButt">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    {{else}}
+
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark main1">
+                <div class="w-50">
+                    <a class="navbar-brand ms-5"><img class="pro me-2" src="../images/pro.jpg" alt="logo" class="logo"><span>VIBE</span>ZON3</a>
+
+                </div>
+                <div class="w-50 ms-auto d-flex justify-content-end">
+                    <a href="/labels" class="btn btn-light mx-3 text-center text-dark"><b class="fa-regular fa-house-blank">Back</b></a>
+                    <i class="fa-regular fa-house-blank"></i>
+
+                </div>
+
+            </nav>
+        </div>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-sm-12  d-flex flex-column align-items-center justify-content-center ">
+                    <h3 class="text-white my-4">Enter Song details</h3>
+
+                    <form class="w-75" action="/songform" method="post">
+
+                        <div class="form-group w-75 mt-4">
+                            <label for="title"> Enter the Song Title</label>
+                            <input required type="text" class="form-control" name="title" id="title">
+                        </div>
+
+                        <div class="form-group w-75 my-2">
+                            <label for="genre"> Enter the song Genre</label>
+                            <input required type="text" name="genre" id="genre" class="form-control">
+                        </div>
+
+                        <div class="form-group w-75 my-2">
+                            <label for="arist"> Select an Artist</label>
+                            <select required class="form-select my-1" name="artist" id="artist" class="form-control" >
+                               <option value="{{artists.id}}">{{artists.name}}</option>
+
+                            </select>
+                        </div>
+
+
+                        <button type="submit" class="btn w-75 my-2 " id="myButt">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    {{/if}}
+
+    {{/partial}}
+{{>layout.hbs}}

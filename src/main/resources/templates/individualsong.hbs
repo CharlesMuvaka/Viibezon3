@@ -1,0 +1,67 @@
+{{#partial "content"}}
+    <div class="container-fluid" style="margin-bottom:6rem;">
+        <nav class="navbar navbar-expand-sm navbar-dark ">
+            <a class="navbar-brand ms-5"><img class="pro me-2" src="../images/pro.jpg"
+                                              alt="logo"><span>VIBE</span>ZON3</a>
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#yes"
+                    aria-label="toggle navigation"
+                    aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class=" collapse navbar-collapse me-5" id="yes">
+                <ul class="navbar-nav ms-auto">
+                    <li><a href="/" class="nav-link  p2 px-4">Home</a></li>
+                    <li><a href="/artists" class="nav-link  p2 px-4">Artists</a></li>
+                    <li><a href="/labels" class="nav-link  p2 px-4">Labels</a></li>
+                    <li><a class="nav-link  p2 px-4">News</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-sm-10 text-white ">
+
+                <div class="mainCont d-flex w-100 main1 mt-4 ">
+
+                    <div class="cont1 w-100 ">
+                        <div class="first d-flex flex-column align-items-center">
+                            <h5 class="my-3">{{song.title}}</h5>
+                            <p class="m-1">Song Genre: {{song.genre}}</p>
+                            <p class="m-1">Artist: {{artist}}</p>
+                            <p>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </p>
+
+                        </div>
+                        <div class="rate mb-3 mt-4 d-flex justify-content-around align-items-center">
+                            <a class="tag" href="/delete-song/{{song.id}}">Delete</a>
+                            <a class="tag" href="/update-song/{{song.id}}">Update</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="w-50 ms-auto mt-4 d-flex justify-content-end">
+        <a href="/artist/{{id}}" class=" btn btn-light mx-3 text-center"><i class="fa-regular fa-house-blank">Back</i></a>
+        <i class="fa-regular fa-house-blank"></i>
+
+    </div>
+{{/partial}}
+{{>layout.hbs}}

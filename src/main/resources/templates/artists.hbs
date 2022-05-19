@@ -1,7 +1,8 @@
 {{#partial "content"}}
     <div class="container-fluid">
         <nav class="navbar navbar-expand-sm navbar-dark ">
-            <a class="navbar-brand ms-5"><img class="pro me-2" src="./images/pro.jpg" alt="logo"><span>VIBE</span>ZON3</a>
+            <a class="navbar-brand ms-5"><img class="pro me-2" src="./images/pro.jpg"
+                                              alt="logo"><span>VIBE</span>ZON3</a>
             <button
                     class="navbar-toggler"
                     type="button"
@@ -13,7 +14,7 @@
             </button>
             <div class=" collapse navbar-collapse me-5" id="yes">
                 <ul class="navbar-nav ms-auto">
-                    <li><a href="/"class="nav-link  p2 px-4">Home</a></li>
+                    <li><a href="/" class="nav-link  p2 px-4">Home</a></li>
                     <li><a href="/artists" class="nav-link  p2 px-4">Artists</a></li>
                     <li><a href="/labels" class="nav-link  p2 px-4">Labels</a></li>
                     <li><a class="nav-link  p2 px-4">News</a></li>
@@ -26,33 +27,37 @@
         <div class="row">
             <h4 class="text-center">Below is a list of the top Musicians in the region</h4>
             <div class="divvv d-flex justify-content-end my-3">
-                <a class="tag me-5"  href="/artistForm">Add New</a>
+                <a class="tag me-5" href="/artistForm">Add New</a>
             </div>
             {{#each artists}}
-            <div class="col-sm-3">
+                <div class="col-sm-3">
 
-                <div class="cont1 w-100">
-                    <div class="first d-flex flex-column align-items-center">
-                        <h5 class="my-3">{{name}}</h5>
-                        <img class="cont" src={{avatarUrl}} alt="">
-                    </div>
-                    <p class="m-1">Artist Genre: {{ genre}}</p>
-                    <p class="m-1">Artist Singing Style: {{ artistType}}</p>
-                    <p class="m-1">Artists best Instrument:{{ instrument}}</p>
-                    <p class="m-1">Hit Song</p>
-                    <p class="text-center">
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </p>
-                    <div class="rate mb-3 d-flex justify-content-around align-items-center">
-                        <a class="tag" href="/delete-artist/{{id}}">Delete</a>
-                        <a class="tag" href="/update-artist/{{id}}">Update</a>
+                    <div class="cont1 w-100 pb-2">
+                        <a href="/artist/{{id}}">
+                            <div class="first d-flex flex-column align-items-center">
+                                <a href="/artist/{{id}}" class="text-white">
+                                    <h5 class="my-3">{{name}}</h5></a>
+
+                                <img class="cont" src={{avatarUrl}} alt="">
+                            </div>
+                        </a>
+                        <p class="m-1">Artist Genre: {{genre}}</p>
+                            <p class="m-1">Artist Type: {{artistType}}</p>
+                        <p class="m-1">Artists best Instrument: {{instrument}}</p>
+                        <p class="text-center">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </p>
+                        <div class="rate mb-3 d-flex justify-content-around align-items-center">
+                            <a class="tag" href="/delete-artist/{{id}}">Delete</a>
+                            <a class="tag" href="/update-artist/{{id}}">Update</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+
             {{/each}}
         </div>
     </div>

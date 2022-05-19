@@ -42,7 +42,10 @@ public class sql2oSongDao implements SongDao {
         String sql = "UPDATE songs SET title = :title, genre = :genre, musicianid = :musicianid WHERE id = :id";
         try (var connection = db.sql2o.open()) {
             connection.createQuery(sql)
-                    .bind(song)
+                    .addParameter("title",song.getTitle())
+                    .addParameter("genre",song.getGenre())
+                    .addParameter("musicianid",song.getMusicianid())
+                    .addParameter("id",id)
                     .executeUpdate();
         }
     }
