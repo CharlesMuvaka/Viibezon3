@@ -18,12 +18,19 @@ import static spark.Spark.*;
 import static spark.route.HttpMethod.post;
 
 public class App {
-
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567;
+    }
     static sql2oMusicianDao musicianDao = new sql2oMusicianDao();
     static sql2oRecordLabelDao recordLabelDao = new sql2oRecordLabelDao();
     static sql2oSongDao songDao = new sql2oSongDao();
 
     public static void main(String[] args) {
+        port(getHerokuAssignedPort());
         staticFileLocation("/public");
 
         //get the index page
@@ -61,7 +68,6 @@ public class App {
             Map<String, Object> templateData = new HashMap<>();
             List<RecordLabel> labels = recordLabelDao.getAll();
             templateData.put("labels", labels);
-
             return new ModelAndView(templateData, "form.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -171,7 +177,7 @@ public class App {
             Musician artists = musicianDao.findById(id);
             model.put("artists", artists);
             boolean position = true;
-            model.put("form",position);
+            model.put("position",position);
             model.put("id",id);
             return modelAndView(model, "songform.hbs");
         }, new HandlebarsTemplateEngine());
@@ -264,8 +270,7 @@ public class App {
             model.put("artist",artists);
             model.put("label", label);
             boolean position = true;
-
-            model.put("update", position);
+            model.put("position", position);
             return modelAndView(model,"onelabel.hbs");
         }, new HandlebarsTemplateEngine());
 

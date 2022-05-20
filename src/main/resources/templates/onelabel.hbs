@@ -1,6 +1,6 @@
 {{#partial "content"}}
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-sm navbar-dark ">
+        <nav class="navbar navbar-expand-sm  ">
             <a class="navbar-brand ms-5"><img class="pro me-2" src="../images/pro.jpg"
                                               alt="logo"><span>VIBE</span>ZON3</a>
             <button
@@ -55,7 +55,7 @@
                             <h5 class="my-3">Signed Artists</h5>
                             <ul>
                                 {{#each artist}}
-                                    <li><a href="/artist/{{id}}" class="text-white">{{name}}</a></li>
+                                    <a href="/artist/{{id}}" class="text-white "><li class="list-item">{{name}}</li></a>
                                 {{/each}}
 
                             </ul>

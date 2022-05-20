@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,500&display=swap');
+
+body{
+background-image: url("../images/backg.jpg");
+background-position: center;
+  background-repeat: no-repeat;
+background-color: white;
+      background-blend-mode: multiply;
+   background-blend-mode: multiply;
+  background-size: cover;
+}
+img{
+opacity: 1;
+}
+
 .cont{
     width: 98%;
     border-radius: 5px;
@@ -6,12 +21,18 @@
 a:link {
   text-decoration: none;
 }
+li.list-item:hover{
+  color: green;
+}
+a.nav-link{
+color:white;
+}
 a.nav-link:hover, a:active {
-  background-color: green;
+  background-color: grey;
   color: white;
 }
 a > h5:hover {
-color: green;
+color: blue;
 }
 a.navbar-brand:hover{
  background-color:  inherit;
@@ -24,11 +45,15 @@ a.navbar-brand:hover{
     border-right: 1px solid rgb(2, 7, 24);
 }
 .mainCont{
-    background-color: rgb(2, 7, 24);
-    border: 1px;
+    background-color: grey;
+  background-blend-mode: multiply;
+   background-blend-mode: multiply;
+    opacity: .7;
+ border: 1px;
     border-radius: 10px;
 
 }
+
 .pro{
     height: 50px;
     width: 60px;
@@ -55,7 +80,10 @@ a.navbar-brand{
 form{
     align-items: center;
     color: white;
-    background-color:rgb(2, 7, 24);
+   background-image: url("images/header.jpg");
+    background-color:grey;
+    background-blend-mode: multiply;
+     background-blend-mode: multiply;
     height: auto;
     width: 100%;
     border-radius: 15px;
@@ -73,17 +101,41 @@ form{
     width: 25%;
 }
 .cont1{
-    background-color: rgb(2, 7, 24);
+    background-color: grey;
+    opacity: .7;
     border: 1px;
     border-radius: 10px;
 }
 .tag{
     text-decoration: none;
-    color: white;
+    color: black;
     padding: 8px;
-    background-color: green;
+    background-color: white;
     border-radius: 5px;
 }
-#myButt{
-    background-color: green;
+a.me-5{
+ background-color: grey;
 }
+#myButt{
+    background-color: grey;
+    width: 30px;
+}
+
+.btn{
+background-color:grey;
+}
+
+.text-end{
+color: white;
+}
+.footer-img{
+background-image: url("/images/vibes-retro.gif");
+border-radius: 30px;
+ height: 13rem;
+  width:20rem;
+  background-position: center;
+     background-repeat: no-repeat;
+
+}
+
+
